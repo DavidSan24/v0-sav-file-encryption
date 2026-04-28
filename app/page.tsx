@@ -36,7 +36,7 @@ export default function Home() {
           <div>
             <h1 className="text-xl font-bold text-foreground">SAV File Editor</h1>
             <p className="text-sm text-muted-foreground">
-              Encripta y modifica tus archivos .sav
+              {"Encripta y modifica tus archivos .sav"}
             </p>
           </div>
         </div>
@@ -56,9 +56,9 @@ export default function Home() {
                 <div className="p-3 rounded-lg bg-primary/10 w-fit">
                   <Shield className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-semibold text-foreground">Encriptación AES-256</h3>
+                <h3 className="font-semibold text-foreground">{"Encriptación AES-256"}</h3>
                 <p className="text-sm text-muted-foreground">
-                  Protege tus archivos con encriptación de grado militar usando AES-GCM.
+                  {"Protege tus archivos con encriptación de grado militar usando AES-GCM."}
                 </p>
               </div>
 
@@ -66,9 +66,9 @@ export default function Home() {
                 <div className="p-3 rounded-lg bg-primary/10 w-fit">
                   <Edit3 className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-semibold text-foreground">Editor Hexadecimal</h3>
+                <h3 className="font-semibold text-foreground">{"Editor Hexadecimal"}</h3>
                 <p className="text-sm text-muted-foreground">
-                  Modifica cada byte de tu archivo con el editor hex interactivo.
+                  {"Modifica cada byte de tu archivo con el editor hex interactivo."}
                 </p>
               </div>
 
@@ -78,38 +78,38 @@ export default function Home() {
                 </div>
                 <h3 className="font-semibold text-foreground">100% Local</h3>
                 <p className="text-sm text-muted-foreground">
-                  Todo el procesamiento ocurre en tu navegador. Tus datos nunca salen de tu dispositivo.
+                  {"Todo el procesamiento ocurre en tu navegador. Tus datos nunca salen de tu dispositivo."}
                 </p>
               </div>
             </section>
 
             {/* Instructions */}
             <section className="max-w-2xl mx-auto bg-card rounded-lg border border-border p-6">
-              <h2 className="font-semibold text-foreground mb-4">¿Cómo usar?</h2>
+              <h2 className="font-semibold text-foreground mb-4">{"¿Cómo usar?"}</h2>
               <ol className="space-y-3 text-sm text-muted-foreground">
                 <li className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-medium">
                     1
                   </span>
-                  <span>Sube tu archivo .sav arrastrándolo o haciendo clic en el área de carga</span>
+                  <span>{"Sube tu archivo .sav arrastrándolo o haciendo clic en el área de carga"}</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-medium">
                     2
                   </span>
-                  <span>Usa el editor hexadecimal para modificar los bytes que necesites</span>
+                  <span>{"Usa el editor hexadecimal para modificar los bytes que necesites"}</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-medium">
                     3
                   </span>
-                  <span>Encripta el archivo con una contraseña para proteger tus modificaciones</span>
+                  <span>{"Encripta el archivo con una contraseña para proteger tus modificaciones"}</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center text-xs font-medium">
                     4
                   </span>
-                  <span>Descarga el archivo modificado y/o encriptado</span>
+                  <span>{"Descarga el archivo modificado y/o encriptado"}</span>
                 </li>
               </ol>
             </section>
@@ -150,7 +150,7 @@ export default function Home() {
                 </h2>
                 <HexEditor data={fileData} onChange={handleDataChange} />
                 <p className="text-xs text-muted-foreground">
-                  Haz clic en cualquier byte para editarlo. Presiona Enter para confirmar o Escape para cancelar.
+                  {"Haz clic en cualquier byte para editarlo. Presiona Enter para confirmar o Escape para cancelar."}
                 </p>
               </div>
 
@@ -174,7 +174,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-border mt-auto">
         <div className="max-w-7xl mx-auto px-4 py-4 text-center text-sm text-muted-foreground">
-          SAV File Editor - Todo el procesamiento es local y seguro
+          {"SAV File Editor - Todo el procesamiento es local y seguro"}
         </div>
       </footer>
     </main>

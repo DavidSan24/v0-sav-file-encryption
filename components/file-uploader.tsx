@@ -14,7 +14,7 @@ export function FileUploader({ onFileSelect, currentFile }: FileUploaderProps) {
     (e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault()
       const file = e.dataTransfer.files[0]
-      if (file && file.name.endsWith(".sav")) {
+      if (file && (file.name.endsWith(".sav") || file.name.endsWith(".bin"))) {
         onFileSelect(file)
       }
     },
@@ -47,9 +47,9 @@ export function FileUploader({ onFileSelect, currentFile }: FileUploaderProps) {
     >
       <input
         type="file"
-        accept=".sav"
+        accept=".sav,.bin"
         onChange={handleChange}
-        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
       />
       <div className="flex flex-col items-center gap-4 text-center">
         {currentFile ? (
@@ -71,10 +71,10 @@ export function FileUploader({ onFileSelect, currentFile }: FileUploaderProps) {
             </div>
             <div>
               <p className="font-semibold text-foreground">
-                Arrastra tu archivo .sav aquí
+                {"Arrastra tu archivo .sav o .bin aquí"}
               </p>
               <p className="text-sm text-muted-foreground">
-                o haz clic para seleccionar
+                {"o haz clic para seleccionar"}
               </p>
             </div>
           </>
