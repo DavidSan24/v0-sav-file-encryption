@@ -49,7 +49,7 @@ export function FileUploader({ onFileSelect, currentFile }: FileUploaderProps) {
         type="file"
         accept=".sav"
         onChange={handleChange}
-        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
       />
       <div className="flex flex-col items-center gap-4 text-center">
         {currentFile ? (
@@ -71,10 +71,10 @@ export function FileUploader({ onFileSelect, currentFile }: FileUploaderProps) {
             </div>
             <div>
               <p className="font-semibold text-foreground">
-                Arrastra tu archivo .sav aquí
+                {"Arrastra tu archivo .sav aquí"}
               </p>
               <p className="text-sm text-muted-foreground">
-                o haz clic para seleccionar
+                {"o haz clic para seleccionar"}
               </p>
             </div>
           </>
