@@ -73,10 +73,10 @@ export function EncryptionPanel({ data, fileName, onDataChange }: EncryptionPane
     let newFileName: string
     
     if (isEncrypted) {
-      // Encriptado -> descargar como .bin
-      newFileName = `${baseName}_encrypted.bin`
+      // Desencriptado (decrypt) -> descargar como .bin
+      newFileName = `${baseName}.bin`
     } else {
-      // Desencriptado o sin encriptar -> descargar como .sav
+      // Encriptado (encrypt) -> descargar como .sav
       newFileName = `${baseName}.sav`
     }
     
