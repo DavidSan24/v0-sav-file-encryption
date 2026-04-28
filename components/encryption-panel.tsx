@@ -43,7 +43,7 @@ export function EncryptionPanel({ data, fileName, onDataChange }: EncryptionPane
 
   const handleDecrypt = async () => {
     if (!password || !storedIv) {
-      setError("Ingresa la contraseña correcta")
+      setError("Ingresa la contraseña correcta y carga el archivo de clave (.json)")
       return
     }
 
@@ -107,6 +107,7 @@ export function EncryptionPanel({ data, fileName, onDataChange }: EncryptionPane
           const ivBuffer = base64ToArrayBuffer(content.iv)
           setStoredIv(new Uint8Array(ivBuffer))
           setIsEncrypted(true)
+          setError(null)
         }
       } catch {
         setError("Archivo de clave inválido")
@@ -164,7 +165,7 @@ export function EncryptionPanel({ data, fileName, onDataChange }: EncryptionPane
         {isEncrypted ? (
           <Button
             onClick={handleDecrypt}
-            disabled={isProcessing || !password}
+            disabled={isProcessing || !password || !storedIv}
             className="gap-2"
           >
             <Unlock className="w-4 h-4" />
@@ -183,23 +184,25 @@ export function EncryptionPanel({ data, fileName, onDataChange }: EncryptionPane
 
         <Button variant="secondary" onClick={handleDownload} className="gap-2">
           <Download className="w-4 h-4" />
-          Descargar
+          {"Descargar"}
         </Button>
 
-        {isEncrypted && (
-          <div className="relative">
-            <Button variant="outline" className="gap-2">
-              Cargar Clave
-            </Button>
-            <input
-              type="file"
-              accept=".json"
-              onChange={handleLoadKey}
-              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-            />
-          </div>
-        )}
+        <div className="relative">
+          <Button variant="outline" className="gap-2">
+            {storedIv ? "Clave Cargada" : "Cargar Clave (.json)"}
+          </Button>
+          <input
+            type="file"
+            accept=".json"
+            onChange={handleLoadKey}
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+          />
+        </div>
       </div>
+
+      {storedIv && (
+        <p className="text-sm text-primary">{"Clave IV cargada correctamente. Ingresa la contraseña y presiona Desencriptar."}</p>
+      )}
     </div>
   )
 }
