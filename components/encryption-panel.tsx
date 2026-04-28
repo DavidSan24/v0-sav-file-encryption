@@ -71,7 +71,7 @@ export function EncryptionPanel({ data, fileName, onDataChange }: EncryptionPane
     // Crear nombre del archivo
     const baseName = fileName.replace(".sav", "")
     const newFileName = isEncrypted 
-      ? `${baseName}_encrypted.sav` 
+      ? `${baseName}_encrypted.bin` 
       : `${baseName}_modified.sav`
     
     a.download = newFileName
