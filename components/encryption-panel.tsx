@@ -69,14 +69,20 @@ export function EncryptionPanel({ data, fileName, onDataChange }: EncryptionPane
     a.href = url
     
     // Crear nombre del archivo
-    const baseName = fileName.replace(".sav", "")
-    const newFileName = isEncrypted 
-      ? `${baseName}_encrypted.bin` 
-      : `${baseName}_modified.sav`
+    const baseName = fileName.replace(".sav", "").replace(".bin", "").replace("_encrypted", "")
+    let newFileName: string
+    
+    if (isEncrypted) {
+      // Encriptado -> descargar como .bin
+      newFileName = `${baseName}_encrypted.bin`
+    } else {
+      // Desencriptado o sin encriptar -> descargar como .sav
+      newFileName = `${baseName}.sav`
+    }
     
     a.download = newFileName
     
-    // Si está encriptado, también guardar el IV en un archivo separado
+    // Si esta encriptado, tambien guardar el IV en un archivo separado
     if (isEncrypted && storedIv) {
       const ivData = {
         iv: arrayBufferToBase64(storedIv.buffer),
